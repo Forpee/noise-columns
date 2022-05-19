@@ -1,4 +1,5 @@
 uniform float uTime;
+uniform float black;
 
 varying vec2 vUv;
 
@@ -167,4 +168,8 @@ void main()
     if(noise==0.)discard;
     
     gl_FragColor=vec4(vec3(noise),1.);
+    
+    if(black>.5){
+        gl_FragColor.rgb=vec3(0.);
+    }
 }
