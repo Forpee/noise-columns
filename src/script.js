@@ -58,6 +58,11 @@ for (let i = 0; i <= num; i++) {
     let mesh1 = new THREE.Mesh(geometry, m1);
     mesh.position.y = level;
     mesh1.position.y = level - 0.005;
+
+    if (i === num) {
+        mesh1.position.y = level - 1 / num;
+    }
+
     mesh.rotation.x = Math.PI / 2;
     mesh1.rotation.x = Math.PI / 2;
     mesh.rotation.z = Math.PI / 4;

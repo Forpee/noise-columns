@@ -165,10 +165,10 @@ void main()
     
     float noise=cnoise(vec4(vUv*10.,uTime+level,0.));
     noise*=border;
-    noise=aastep(noise,0.);
+    noise=aastep(.1+level/3.,noise);
     if(noise==0.)discard;
     
-    gl_FragColor=vec4(vec3(noise),1.);
+    gl_FragColor=vec4(vec3(level),1.);
     
     if(black>.5){
         gl_FragColor.rgb=vec3(0.);
