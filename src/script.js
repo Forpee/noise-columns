@@ -2,11 +2,8 @@ import './style.css';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import * as dat from 'dat.gui';
-// @ts-ignore
 import vertexShader from './shaders/vertex.glsl';
-// @ts-ignore
 import fragmentShader from './shaders/fragment.glsl';
-// @ts-ignore
 import gsap from 'gsap';
 /**
  * Base
