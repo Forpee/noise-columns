@@ -153,5 +153,18 @@ float aastep(float threshold,float value){
 
 void main()
 {
-    gl_FragColor=vec4(vUv,1.,1.);
+    float w=.1;
+    float border=smoothstep(0.,w,vUv.x);
+    float border1=smoothstep(0.,w,vUv.y);
+    float border2=smoothstep(0.,w,1.-vUv.y);
+    float border3=smoothstep(0.,w,1.-vUv.x);
+    
+    border*=border1*border2*border3;
+    
+    float noise=cnoise(vec4(vUv*10.,uTime,0.));
+    noise*=border;
+    noise=aastep(noise,0.);
+    if(noise==0.)discard;
+    
+    gl_FragColor=vec4(vec3(noise),1.);
 }
