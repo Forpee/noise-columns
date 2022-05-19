@@ -33,7 +33,7 @@ const material = new THREE.ShaderMaterial({
     vertexShader: vertexShader,
     fragmentShader: fragmentShader,
     side: THREE.DoubleSide,
-    wireframe: true,
+    transparent: true,
 });
 
 let group = new THREE.Group();
