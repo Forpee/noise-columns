@@ -22,7 +22,7 @@ const scene = new THREE.Scene();
  * Test mesh
  */
 // Geometry
-let num = 10;
+let num = 50;
 const geometry = new THREE.PlaneBufferGeometry(1, 1, 1, 1);
 
 // Material
