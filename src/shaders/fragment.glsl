@@ -1,5 +1,6 @@
 uniform float uTime;
 uniform float black;
+uniform float level;
 
 varying vec2 vUv;
 
@@ -162,7 +163,7 @@ void main()
     
     border*=border1*border2*border3;
     
-    float noise=cnoise(vec4(vUv*10.,uTime,0.));
+    float noise=cnoise(vec4(vUv*10.,uTime+level,0.));
     noise*=border;
     noise=aastep(noise,0.);
     if(noise==0.)discard;
