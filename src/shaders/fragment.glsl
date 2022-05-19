@@ -172,5 +172,12 @@ void main()
     
     if(black>.5){
         gl_FragColor.rgb=vec3(0.);
+        if(level==1.){
+            discard;
+        }
+    }
+    
+    if(level==1.){
+        gl_FragColor.rgb=vec3(.2,1.,1.);
     }
 }

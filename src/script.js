@@ -60,6 +60,8 @@ for (let i = 0; i <= num; i++) {
     mesh1.position.y = level - 0.005;
     mesh.rotation.x = Math.PI / 2;
     mesh1.rotation.x = Math.PI / 2;
+    mesh.rotation.z = Math.PI / 4;
+    mesh1.rotation.z = Math.PI / 4;
     group.add(mesh);
     group.add(mesh1);
 }
