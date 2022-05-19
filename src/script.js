@@ -23,7 +23,7 @@ const scene = new THREE.Scene();
  */
 // Geometry
 let num = 10;
-const geometry = new THREE.PlaneBufferGeometry(1, 1, 32, 32);
+const geometry = new THREE.PlaneBufferGeometry(1, 1, 1, 1);
 
 // Material
 const material = new THREE.ShaderMaterial({
@@ -45,6 +45,7 @@ for (let i = 0; i <= num; i++) {
     let level = i / num;
     let mesh = new THREE.Mesh(geometry, material);
     mesh.position.y = level;
+    mesh.rotation.x = Math.PI / 2;
     group.add(mesh);
 }
 
