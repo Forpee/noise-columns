@@ -42,13 +42,14 @@ let group = new THREE.Group();
 group.position.y = -0.5;
 
 scene.add(group);
-
+let matts = [];
 for (let i = 0; i <= num; i++) {
     let level = i / num;
 
     let m0 = material.clone();
     let m1 = material.clone();
-
+    matts.push(m0);
+    matts.push(m1);
     m0.uniforms.black.value = 1;
     m1.uniforms.black.value = 0;
     m0.uniforms.level.value = level;
@@ -128,7 +129,9 @@ const tick = () => {
 
     // Update uniforms
     material.uniforms.uTime.value = elapsedTime;
-
+    matts.forEach(m => {
+        m.uniforms.uTime.value = elapsedTime;
+    });
     // Render
     renderer.render(scene, camera);
 
