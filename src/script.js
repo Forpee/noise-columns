@@ -29,6 +29,8 @@ const geometry = new THREE.PlaneBufferGeometry(1, 1, 1, 1);
 const material = new THREE.ShaderMaterial({
     uniforms: {
         uTime: { value: 0 },
+        black: { value: 0 },
+        level: { value: 0 },
     },
     vertexShader: vertexShader,
     fragmentShader: fragmentShader,
@@ -43,10 +45,20 @@ scene.add(group);
 
 for (let i = 0; i <= num; i++) {
     let level = i / num;
-    let mesh = new THREE.Mesh(geometry, material);
+
+    let m0 = material.clone();
+    let m1 = material.clone();
+
+    m0.uniforms.black.value = 1;
+    m1.uniforms.black.value = 0;
+    m0.uniforms.level.value = level;
+    m1.uniforms.level.value = level;
+    let mesh = new THREE.Mesh(geometry, m0);
+    let mesh1 = new THREE.Mesh(geometry, m1);
     mesh.position.y = level;
     mesh.rotation.x = Math.PI / 2;
     group.add(mesh);
+    group.add(mesh1);
 }
 
 // Mesh
