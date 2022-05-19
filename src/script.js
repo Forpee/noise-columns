@@ -32,8 +32,12 @@ const material = new THREE.ShaderMaterial({
     },
     vertexShader: vertexShader,
     fragmentShader: fragmentShader,
-    side: THREE.DoubleSide
+    side: THREE.DoubleSide,
+    wireframe: true,
 });
+
+let group = new THREE.Group();
+group.position.y = -0.5;
 
 // Mesh
 const mesh = new THREE.Mesh(geometry, material);
