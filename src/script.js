@@ -39,9 +39,18 @@ const material = new THREE.ShaderMaterial({
 let group = new THREE.Group();
 group.position.y = -0.5;
 
+scene.add(group);
+
+for (let i = 0; i <= num; i++) {
+    let level = i / num;
+    let mesh = new THREE.Mesh(geometry, material);
+    mesh.position.y = level;
+    group.add(mesh);
+}
+
 // Mesh
-const mesh = new THREE.Mesh(geometry, material);
-scene.add(mesh);
+// const mesh = new THREE.Mesh(geometry, material);
+// scene.add(mesh);
 
 /**
  * Sizes
